@@ -1,3 +1,4 @@
+from entity.errors import UnknownUnitError
 from entity.length_unit import FeetUnit, LengthUnit, MeterUnit, YardUnit
 
 
@@ -11,7 +12,10 @@ class UnitRegistry:
         self._units[unit.name] = unit
 
     def get(self, name: str) -> LengthUnit:
-        return self._units[name]
+        try:
+            return self._units[name]
+        except KeyError as exc:
+            raise UnknownUnitError(f"Unknown unit: {name}") from exc
 
     def all_units(self) -> list[LengthUnit]:
         return list(self._units.values())

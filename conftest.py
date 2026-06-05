@@ -12,21 +12,22 @@ def _fix_path() -> None:
     if SRC in sys.path:
         sys.path.remove(SRC)
     sys.path.insert(0, SRC)
-    entity = sys.modules.get("entity")
-    if entity is not None:
-        entity_file = getattr(entity, "__file__", "") or ""
-        if "src" not in entity_file.replace("\\", "/"):
-            for key in list(sys.modules):
-                if key == "entity" or key.startswith("entity."):
-                    del sys.modules[key]
+    for package in ("entity", "boundary", "control"):
+        mod = sys.modules.get(package)
+        if mod is not None:
+            mod_file = getattr(mod, "__file__", "") or ""
+            if "src" not in mod_file.replace("\\", "/"):
+                for key in list(sys.modules):
+                    if key == package or key.startswith(f"{package}."):
+                        del sys.modules[key]
 
 
-class _EntityImportFixer:
+class _SrcPackageImportFixer:
     def find_spec(self, fullname, path, target=None):
-        if fullname == "entity" or fullname.startswith("entity."):
+        if fullname.split(".", 1)[0] in ("entity", "boundary", "control"):
             _fix_path()
         return None
 
 
 _fix_path()
-sys.meta_path.insert(0, _EntityImportFixer())
+sys.meta_path.insert(0, _SrcPackageImportFixer())
