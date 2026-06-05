@@ -49,7 +49,7 @@ pytest tests/boundary -v
 | ID | Red | Green | 비고 |
 |----|-----|-------|------|
 | FR-01 | ✅ | ❌ | `tests/boundary/test_fr01_parse_input.py` |
-| FR-02 | ✅ | ❌ | `tests/entity/test_fr02_convert_all_units.py` |
+| FR-02 | ✅ | ✅ | `tests/entity/test_fr02_convert_all_units.py` |
 | FR-03 | ✅ | ❌ | `tests/entity/test_fr03_unknown_unit.py` |
 | FR-04 | ✅ | ❌ | `tests/entity/test_fr04_reject_negative.py` |
 | FR-05 | ✅ | ❌ | `tests/boundary/test_fr05_invalid_format.py` |

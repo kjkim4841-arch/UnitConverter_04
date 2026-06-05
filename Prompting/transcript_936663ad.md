@@ -6,8 +6,8 @@
 | Export date | 2025-06-05 |
 | Project | UnitConverter_04 |
 | Raw JSONL | transcript_936663ad.jsonl |
-| Turns | 14 |
-| 주제 | Entity layer Red TDD → P0 Red 전체 완료 |
+| Turns | 20 |
+| 주제 | Entity Red TDD → P0 Red 완료 → FR-02 Green |
 
 ---
 
@@ -19,13 +19,7 @@
 
 ## Turn 2 — ASSISTANT
 
-Entity layer Red 테스트는 **Track B(Logic)** 에 해당하는 FR/NFR만 `tests/entity/`에 순서대로 작성.
-
-**Entity 범위:** LengthUnit, UnitRegistry, Converter — FR-02, FR-04, FR-03, NFR-01
-
-**Red 순서:** FR-02 → FR-04 → FR-03 → NFR-01
-
-각 ID별 AAA 예시·Red 규칙·보고 형식 정리.
+Entity layer Red — Track B, FR-02 → FR-04 → FR-03 → NFR-01 순서·AAA·규칙 정리.
 
 _[Tools: Read, Glob, SemanticSearch, Read, Read, Read, Glob]_
 
@@ -41,13 +35,9 @@ FR-02 항목에 대해 먼저 Red 작성해줘
 
 **Phase: red | Layer: entity | Track: B | ID: FR-02**
 
-`tests/entity/test_fr02_convert_all_units.py` 생성. pytest FAIL:
+`test_fr02_convert_all_units.py` 생성. FAIL: `ModuleNotFoundError: entity.converter`
 
-```
-ModuleNotFoundError: No module named 'entity.converter'
-```
-
-_[Tools: Read, Read, Write, Shell, Shell]_
+_[Tools: Read, Write, Shell]_
 
 ---
 
@@ -59,9 +49,7 @@ _[Tools: Read, Read, Write, Shell, Shell]_
 
 ## Turn 6 — ASSISTANT
 
-프로젝트 루트에서 **`python -m pytest`** 실행 (Windows PATH 이슈 대응).
-
-자주 쓰는 명령·결과 해석(PASSED/FAILED/ERROR) 정리.
+`python -m pytest` 실행 가이드 (Windows).
 
 _[Tools: Shell]_
 
@@ -75,7 +63,7 @@ Report 폴더에 보고서 생성하고, Prompting 폴더에 Transcript도 Expor
 
 ## Turn 8 — ASSISTANT
 
-`Report/06/FR02_Red_Report.md`, `Prompting/transcript_936663ad.*` 생성. Report/02 FR-02 Red ✅ 갱신.
+Report/06 FR-02 Red 보고서 + Transcript Export.
 
 _[Tools: Glob, Read, Write, Shell, StrReplace]_
 
@@ -89,12 +77,9 @@ _[Tools: Glob, Read, Write, Shell, StrReplace]_
 
 ## Turn 10 — ASSISTANT
 
-`red` 브랜치 커밋·푸시 완료.
+`red` 브랜치 커밋 `17defab` 푸시.
 
-- 커밋: `17defab` — Add FR-02 Red test and red-phase project artifacts.
-- 저장소: https://github.com/kjkim4841-arch/UnitConverter_04
-
-_[Tools: Shell, Glob, git add/commit/push]_
+_[Tools: Shell, git]_
 
 ---
 
@@ -106,22 +91,9 @@ _[Tools: Shell, Glob, git add/commit/push]_
 
 ## Turn 12 — ASSISTANT
 
-**Phase: red | Layer: entity + boundary | Track: B + A**
+P0 Red 7/7 완료 (entity 4 + boundary 3). pytest: 6 ERROR + 1 FAILED.
 
-P0 Red 6건 추가 → **7/7 완료**:
-
-| ID | 파일 |
-|----|------|
-| FR-04 | `test_fr04_reject_negative.py` |
-| FR-03 | `test_fr03_unknown_unit.py` |
-| NFR-01 | `test_nfr01_ocp_add_inch.py` |
-| FR-01 | `test_fr01_parse_input.py` |
-| FR-05 | `test_fr05_invalid_format.py` |
-| NFR-02 | `test_nfr02_module_separation.py` |
-
-pytest: 6 ERROR + 1 FAILED (Red 확인). Report/02 전체 Red ✅ 갱신.
-
-_[Tools: Read, Write×6, StrReplace, Shell×3]_
+_[Tools: Write×6, StrReplace, Shell]_
 
 ---
 
@@ -133,9 +105,53 @@ Report 폴더에 보고서 생성하고, Prompting 폴더에 Transcript도 Expor
 
 ## Turn 14 — ASSISTANT
 
-`Report/07/P0_Red_Complete_Report.md` 및 `Prompting/transcript_936663ad` Export 갱신.
+Report/07 P0 Red 완료 보고서 + Transcript 갱신.
 
-_[Tools: Glob, Read, Write, Shell, Copy-Item]_
+_[Tools: Write, Copy-Item, StrReplace]_
+
+---
+
+## Turn 15 — USER
+
+깃헙에 업로드해줘
+
+---
+
+## Turn 16 — ASSISTANT
+
+`red` 브랜치 커밋 `e21d50d` 푸시 — P0 Red 전체 + Report/07.
+
+_[Tools: git add/commit/push]_
+
+---
+
+## Turn 17 — USER
+
+RED test 1개에 대한 GREEN test만 진행할거야. 처음 진행했던 FR-02부터 green test 진행해보자
+
+---
+
+## Turn 18 — ASSISTANT
+
+**Phase: green | Layer: entity | Track: B | ID: FR-02**
+
+`src/entity/` 구현 (length_unit, unit_registry, converter). import 충돌 해결 (`conftest.py`, importlib). FR-02 **PASSED**.
+
+_[Tools: Write×3, conftest, pyproject.toml, Shell, StrReplace]_
+
+---
+
+## Turn 19 — USER
+
+Report 폴더에 보고서 생성하고, Prompting 폴더에 Transcript도 Export 해줘
+
+---
+
+## Turn 20 — ASSISTANT
+
+Report/08 FR-02 Green 보고서 및 Transcript Export 갱신.
+
+_[Tools: Read, Write, Copy-Item, Shell]_
 
 ---
 
@@ -143,15 +159,12 @@ _[Tools: Glob, Read, Write, Shell, Copy-Item]_
 
 | 경로 | 내용 |
 |------|------|
-| `tests/entity/test_fr02_convert_all_units.py` | FR-02 Red |
-| `tests/entity/test_fr03_unknown_unit.py` | FR-03 Red |
-| `tests/entity/test_fr04_reject_negative.py` | FR-04 Red |
-| `tests/entity/test_nfr01_ocp_add_inch.py` | NFR-01 Red |
-| `tests/boundary/test_fr01_parse_input.py` | FR-01 Red |
-| `tests/boundary/test_fr05_invalid_format.py` | FR-05 Red |
-| `tests/boundary/test_nfr02_module_separation.py` | NFR-02 Red |
-| `Report/06/FR02_Red_Report.md` | FR-02 Red 보고서 |
-| `Report/07/P0_Red_Complete_Report.md` | P0 Red 완료 보고서 |
-| `Report/02/Traceability_Matrix.md` | Red 커버리지 갱신 |
-| `Prompting/transcript_936663ad.jsonl` | 세션 원본 JSONL |
-| `Prompting/transcript_936663ad.md` | 본 Transcript (가독형) |
+| `src/entity/length_unit.py` | LengthUnit + Meter/Feet/Yard |
+| `src/entity/unit_registry.py` | UnitRegistry |
+| `src/entity/converter.py` | Converter (meter 기준) |
+| `conftest.py` | tests/entity ↔ src/entity import 충돌 해결 |
+| `pyproject.toml` | `--import-mode=importlib` |
+| `tests/entity/test_fr02_convert_all_units.py` | FR-02 Red → Green |
+| `Report/08/FR02_Green_Report.md` | FR-02 Green 보고서 |
+| `Report/02/Traceability_Matrix.md` | FR-02 Green ✅ |
+| `Prompting/transcript_936663ad.*` | 세션 Transcript |
