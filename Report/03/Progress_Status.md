@@ -19,7 +19,7 @@
 | Harness 적합성 검토 | ✅ 완료 | PRD 슬라이드 대조, 갭 4건 식별 |
 | Cursor 기술 가이드 | ✅ 완료 | Rule/Skill/Command/Hook 예시·실행법 |
 | Rule / Skill / Command | ⬜ 미착수 | `.cursor/` 설정 없음 |
-| Red / Green TDD | 🟡 Green 착수 | P0 Red 7/7, FR-02 Green 1/7 (Report/08) |
+| Red / Green TDD | 🟡 Green 진행 | P0 Red 7/7, Entity Green 2/7 (FR-02, FR-04) |
 | Hook | ⬜ 미착수 | `hooks.json` 없음 |
 
 ---
