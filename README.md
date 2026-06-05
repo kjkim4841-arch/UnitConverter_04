@@ -1,10 +1,16 @@
 
 ## Unit Converter (Python)
 ![unit-converter](./unit-converter.jpg)
+
 ### Overview
-- 사용자가 입력한 길이(`단위:값`)를 기반으로, 해당 값을 다른 모든 단위로 변환해 출력하는 프로그램.
+- 사용자가 입력한 길이(`unit:value`)를 기반으로, 해당 값을 다른 모든 단위로 변환해 출력하는 프로그램.
 - 새로운 단위를 추가할 때 기존 코드의 변경이 최소화되도록 설계한다.
 - 각 단위 변환 로직은 테스트 코드로 검증한다.
+
+### 프로젝트 방향
+- 레거시 `UnitConverter.py`(37줄)를 **ECB**(Entity-Control-Boundary) + **Dual-Track TDD**로 재구현
+- 요구사항·테스트 1:1 추적: `Report/01/PRD_Summary.md`, `Report/02/Traceability_Matrix.md`
+- 신규 코드는 `src/`(entity, control, boundary), 테스트는 `tests/`(entity, control, boundary)
 
 ### 가상환경 설정 및 실행
 ```bash
@@ -17,8 +23,15 @@ venv\Scripts\activate
 # 가상환경 활성화 (macOS/Linux)
 source venv/bin/activate
 
-# 실행
+# 레거시 시드 실행 (분석·참고용)
 python UnitConverter.py
+
+# 타깃 CLI 실행 (ECB 재구현 후)
+python -m unit_converter "meter:2.5"
+
+# 테스트 (Dual-Track)
+pytest tests/entity tests/control -v   # Track B — 도메인
+pytest tests/boundary -v               # Track A — CLI·통합
 
 # 가상환경 비활성화
 deactivate
@@ -31,8 +44,8 @@ deactivate
    ```
    → 출력:
    ```
-   2.5 meter = 8.2 feet
-   2.5 meter = 2.7 yard
+   2.5 meter = 8.2021 feet
+   2.5 meter = 2.7340 yard
    ...
    ```
 
@@ -52,16 +65,16 @@ deactivate
 
 ### 품질 요구사항
 - OCP를 만족하는 설계
-- SRP를 만족하는 클래스 구성
+- SRP: Parser / Registry / Converter / Formatter 모듈 분리
 - 입력 값 검증 (음수, 잘못된 형식, 없는 단위)
 
 ### 추가 요구사항
-- **설정 외부화**
-   - 변환 비율을 외부 설정 파일(JSON/YAML)에서 로드
-- **동적으로 단위와 비율을 등록할 수 있도록 한다**
-   - 사용자 입력으로 `1 cubit = 0.4572 meter`를 등록하고 사용 가능
-- **출력 포맷 선택 기능** 
-   - JSON / CSV / 표 형태 출력
+- **설정 외부화 (EXT-01, P1)**
+   - `units.json` 또는 YAML에서 변환 비율 로드
+- **동적으로 단위와 비율을 등록할 수 있도록 한다 (EXT-02, P1)**
+   - 사용자 입력으로 `1 cubit = 0.4572 meter`를 등록하고 즉시 변환 가능
+- **출력 포맷 선택 기능 (EXT-03, P1)**
+   - `--format json | csv | table` (기본: table)
 
 
 ## 생성형AI를 활용한 Activities (6 시간)
@@ -79,5 +92,5 @@ deactivate
 5. 회고 및 발표 (1시간)
    - 실습 목표와 달성도
    - AI를 어떻게 활용했나? 도움이 된 순간과 한계는?
-   - TC를 추가해보면서 개선에 미친 영향, TC 작성 팁
+   - TC를 추가보면서 개선에 미친 영향, TC 작성 팁
    - 클린코드와 리팩토링에서 느낀 장점과 어려운점

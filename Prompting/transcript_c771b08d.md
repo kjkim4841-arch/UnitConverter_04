@@ -6,6 +6,7 @@
 | Export date | 2025-06-05 |
 | Project | UnitConverter_04 |
 | Raw JSONL | transcript_c771b08d.jsonl |
+| Turns | 68 |
 
 ---
 
@@ -25,17 +26,23 @@
 
 프로젝트 구조와 각 계층이 어떻게 정의돼 있는지 먼저 살펴볼게요.
 
+[REDACTED]
+
 _[Tools: Glob, SemanticSearch]_
 
 ---
 
 ## Turn 3 — ASSISTANT
 
+_[Response/tool activity redacted in export]_
+
 _[Tools: Grep, Glob, Read, Read]_
 
 ---
 
 ## Turn 4 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
 
 _[Tools: Read, Read, Read]_
 
@@ -108,51 +115,9 @@ flowchart TB
 
 | 계층 | 한 줄 설명 | 비유 |
 |------|-----------|------|
-| **Tool / MCP** | 파일 읽기·수정, 터미널(`python UnitConverter.py`), grep, GitHub MCP 등 AI가 **실제로 손대는 도구**. | **공구 + 외부 장비** — 드라이버(파일 편집), 멀티미터(터미널 실행), GitHub 연동 |
-| **Test / Review Loop** | `pytest` 실행 → 실패하면 수정 → 다시 테스트하는 **품질 확인 사이클**; README의 “TC 구현”, “입력값 검증 TC” 요구와 직결. | **CCTV + 검수대** — 만든 코드가 meter↔feet 변환이 맞는지 반복 확인 |
+| *
 
-> 지금 상태: Tool은 Cursor 기본 제공; Test Loop는 **아직 테스트 파일 없음** → Agent가 TC를 만들고 돌리는 루프가 아직 없음.
-
----
-
-## 4층: Hook — “일어나기 전·후 자동 감시”
-
-| 계층 | 한 줄 설명 | 비유 |
-|------|-----------|------|
-| **Hook** | 파일 저장 후 자동 `pytest`, 위험한 `git push --force` 차단 등 **Agent 이벤트 전후**에 스크립트가 자동 실행 (`hooks.json`). | **출입 통제 + CCTV** — “코드 수정됐으면 자동으로 테스트”, “위험 명령은 문 앞에서 차단” |
-
-> 지금 상태: `hooks.json` **없음** → 모든 검증·차단은 Agent가 수동으로 하거나, 사용자가 직접 실행해야 함.
-
----
-
-## 이 프로젝트에 대입한 예시
-
-README 요구사항( OCP, SRP, TC, JSON 설정 외부화 )을 Cursor 8계층으로 보면:
-
-| 하고 싶은 일 | 주로 쓰는 계층 |
-|-------------|---------------|
-| “meter:2.5 입력 검증 추가해줘” | Agent + Model + Tool |
-| “항상 OCP/SRP 지켜” | **Rule** (아직 없음 → 대화로만 전달) |
-| “단위 변환 TC 작성 절차대로” | **Skill** (아직 없음) |
-| “/test-converter” 한 방에 TC 돌리기 | **Command** (아직 없음) |
-| `python -m pytest` 로 검증 | Tool + **Test/Review Loop** |
-| 저장할 때마다 자동 테스트 | **Hook** (아직 없음) |
-
----
-
-## 한 줄 요약 (8 + Hook)
-
-1. **Model** — 생각하고 코드/설계를 쓰는 AI 두뇌 (교수)  
-2. **Agent** — 요청을 받아 계획하고 Tool을 부리는 실행자 (반장)  
-3. **Harness** — Cursor IDE + 프로젝트 컨텍스트라는 작업 환경 (사무실)  
-4. **Rule** — 매번 지켜야 할 프로젝트 헌법 (아직 없음)  
-5. **Skill** — 특정 업무용 상세 매뉴얼 (아직 없음)  
-6. **Command** — 자주 쓰는 작업 단축 버튼 (아직 없음)  
-7. **Tool/MCP** — 파일·터미널·외부 서비스 등 실제 손/발  
-8. **Test/Review Loop** — 테스트·검수로 품질 확인하는 CCTV 검수대  
-9. **Hook** — 작업 전후 자동 감시·차단·후처리 (아직 없음)
-
-원하시면 Agent 모드에서 `UnitConverter_04`용 Rule/Skill/Command/hooks.json을 **어떤 순서로 추가하면 좋은지**도 단계별로 정리해 드릴 수 있습니다.
+_[...truncated for readability...]_
 
 ---
 
@@ -171,11 +136,15 @@ UnitConverter_04 용 ECB + Dual-Track TDD용 최소 Harness를 만들어줘.
 
 프로젝트 현재 구조를 확인한 뒤 ECB + Dual-Track TDD용 Harness 골격만 추가합니다.
 
+[REDACTED]
+
 _[Tools: Glob, Read]_
 
 ---
 
 ## Turn 8 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
 
 _[Tools: Write, Write, Write, Write, Write, Write, Write]_
 
@@ -185,11 +154,15 @@ _[Tools: Write, Write, Write, Write, Write, Write, Write]_
 
 pytest가 골격만으로 정상 동작하는지 확인합니다.
 
+[REDACTED]
+
 _[Tools: Shell]_
 
 ---
 
 ## Turn 10 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
 
 _[Tools: Shell]_
 
@@ -226,6 +199,8 @@ UnitConverter_04/
 
 다음 단계로 `tests/entity/`부터 Red 테스트를 추가하면 됩니다.
 
+[REDACTED]
+
 ---
 
 ## Turn 12 — USER
@@ -243,632 +218,1180 @@ The following images were provdied by the user and saved to the workspace for fu
 
 These images can be copied for use in other locations.
 </image_files>
-UnitConverter_04 프로젝트 자료야. 현재 staging, spec 단계 진행중인데 Harness 맞게 구성되었는지랑 이후 Rule, Skill, Command 까지 수행되어야 하는데 의견 들려줘
+UnitConverter_04 프로젝트 자료 내용 포함해서 cursorrule 작성해줄 수 있을까?
 
 ---
 
 ## Turn 13 — ASSISTANT
 
-프로젝트 자료와 현재 Harness 구조를 대조해 의견을 정리하겠습니다.
+프로젝트 구조와 Rule 작성 가이드를 확인한 뒤, 자료를 반영한 `.cursorrules` 초안을 제안하겠습니다.
 
-_[Tools: Glob, Glob, Read]_
+[REDACTED]
+
+_[Tools: Read, Glob, Read, Read]_
 
 ---
 
 ## Turn 14 — ASSISTANT
 
-_[Tools: Read, Glob]_
-
----
-
-## Turn 15 — ASSISTANT
-
-## 총평: staging/spec 단계 Harness — **방향은 맞고, spec 정합성 보완 3~4가지만 하면 됨**
-
-현재 Harness는 **ECB + Dual-Track TDD 골격**으로 staging/spec에 적합합니다. PRD·추적표·타깃 아키텍처 슬라이드와 **큰 틀은 일치**하지만, 슬라이드에 나온 **모듈 단위(SRP 4분할)** 와 **CLI 진입점(`python -m unit_converter`)** 은 아직 Harness에 반영되지 않았습니다. spec 단계에서 이 갭을 메우면 이후 Rule → Skill → Command → Red 테스트 순서가 깔끔해집니다.
-
----
-
-## 1. Harness 적합성 점검
-
-### 잘 맞는 부분
-
-| 항목 | 현재 Harness | PRD/슬라이드와의 관계 |
-|------|-------------|---------------------|
-| ECB 3계층 | `src/entity`, `src/control`, `src/boundary` | NFR-02의 Parser/Registry/Converter/Printer를 계층별로 배치 가능 |
-| Dual-Track 테스트 | `tests/entity`, `tests/control`, `tests/boundary` | 슬라이드 Track B(도메인) ↔ `tests/entity`, Track A(경계) ↔ `tests/boundary` |
-| pytest만 | `pyproject.toml` + `pythonpath = ["src"]` | spec 단계에 적합한 최소 Harness |
-| 레거시 분리 | `UnitConverter.py`는 그대로, `src/`는 비어 있음 | 시드 분석 슬라이드의 “37줄 procedural → 재구현” 흐름과 맞음 |
-
-### spec 단계에서 보완하면 좋은 갭
-
-**① 슬라이드 폴더명 vs ECB 폴더명 — 매핑 문서 필요**
-
-슬라이드 타깃 아키텍처는 `domain/`, `app/`, `infrastructure/`이고, Harness는 `entity/control/boundary`입니다. **둘 다 맞는 설계**이지만, Report/02(또는 spec 문서)에 아래 매핑을 한 줄이라도 고정해 두는 것이 좋습니다.
-
-| 슬라이드 모듈 | ECB 배치 (권장) | SRP 역할 |
-|--------------|----------------|----------|
-| `length_unit.py`, `unit_registry.py`, `converter.py` | `src/entity/` | Registry, Converter |
-| 유스케이스 조율 (전 단위 변환, 동적 등록) | `src/control/` | Control |
-| `input_parser.py`, `output_formatter.py`, `cli.py` | `src/boundary/` | Parser, Printer |
-| `config_loader.py` | `src/boundary/` 또는 `src/entity/` | EXT-01 — spec에서 한쪽만 선택 |
-
-**② CLI 진입점 스캐폴드 없음**
-
-PRD 예시는 `python -m unit_converter "meter:2.5"`인데, 현재는:
-
-- `pyproject.toml`의 `name = "unit-converter"` (하이픈)
-- `unit_converter` 패키지/`__main__.py` 없음
-
-spec 단계에서 **패키지명·진입점·실행 방식**을 Report에 확정해 두면 Track A(`tests/boundary/`) Red 테스트 작성 시 혼선이 줄어듭니다.
-
-**③ 추적성(Traceability) 스캐폴드 없음**
-
-추적표(FR-01~05, NFR-01~02, EXT-01~03)와 테스트 폴더가 아직 1:1로 연결되지 않았습니다. Harness 본문은 비워도 되지만, spec 문서에 **테스트 파일·함수 네이밍 규칙**은 미리 정하는 것이 좋습니다.
-
-예: `tests/entity/test_fr02_convert_all_units.py`, `tests/boundary/test_fr01_parse_input.py`
-
-**④ `tests/control/` 역할 정의**
-
-슬라이드는 Dual-Track을 2트랙(Domain / Boundary)으로만 그렸습니다. 3폴더 Harness는 더 세분화된 구조이므로 spec에서 역할을 명시하는 것이 좋습니다.
-
-- **Track B (빠른 단위)**: `tests/entity/` + `tests/control/`
-- **Track A (CLI·통합)**: `tests/boundary/`
-
-Control은 “Parser 결과 → Registry/Converter 호출 → Formatter에 넘김” 같은 **유스케이스 조율** 테스트에 두면 NFR-02와 잘 맞습니다.
-
----
-
-## 2. staging/spec 단계에서 Harness가 “완료”로 볼 수 있는 기준
-
-코드·테스트 본문 없이도, 아래가 Report/spec에 있으면 Harness는 **spec-ready**로 볼 수 있습니다.
-
-1. ECB ↔ 모듈 매핑표 (위 표 수준)
-2. Dual-Track 실행 명령 정의  
-   - Track B: `pytest tests/entity tests/control`  
-   - Track A: `pytest tests/boundary`
-3. FR/NFR/EXT → 테스트 ID 매핑 (추적표 그대로 + 파일명 규칙)
-4. CLI 실행 계약: `python -m unit_converter`, `--format json|csv|table`
-5. P0(FR+NFR) 먼저, P1(EXT) 나중 — TDD 순서
-
-현재는 **1~5가 코드가 아니라 문서(spec)에 아직 없거나 미확정** 상태로 보입니다. Harness 폴더 구조 자체는 OK, **spec 문서와의 정합성**이 다음 작업입니다.
-
----
-
-## 3. 이후 Rule → Skill → Command 순서 의견
-
-8계층 관점에서 staging/spec 다음은 **Rule(헌법) → Skill(매뉴얼) → Command(버튼)** 순이 맞습니다. Harness가 “어디에 넣을지”, Rule/Skill/Command가 “어떻게 넣을지”를 고정합니다.
-
-### Rule (먼저 — `.cursor/rules/` 또는 user rules)
-
-PRD·NFR에서 **항상 적용**할 헌법 5~7조면 충분합니다.
-
-| Rule 주제 | 내용 (PRD에서 추출) |
-|-----------|-------------------|
-| ECB 경계 | `entity`는 I/O 금지, `boundary`는 변환 로직 금지 |
-| OCP (NFR-01) | 새 단위 추가 시 `converter.py` 수정 금지 → Registry/설정만 |
-| SRP (NFR-02) | Parser / Registry / Converter / Formatter 파일 분리 유지 |
-| Dual-Track TDD | P0 Red → Green → Refactor, Track B 먼저 Track A |
-| 추적성 | 테스트는 FR/NFR/EXT ID를 docstring 또는 파일명에 포함 |
-| 레거시 | `UnitConverter.py` 참고만, `src/`에 새로 구현 |
-
-`.cursorrules` 대신 `.cursor/rules/*.mdc` 권장 — globs로 `src/entity/**`, `tests/boundary/**` 등 계층별 Rule 분리 가능.
-
-### Skill (Rule 다음 — 작업별 매뉴얼)
-
-Rule이 “지켜라”면 Skill은 “이렇게 해라”입니다. UnitConverter_04에 특히 유용한 Skill 3~4개:
-
-| Skill | 트리거 | 내용 |
-|-------|--------|------|
-| **dual-track-red** | “FR-XX Red 테스트 작성” | Given/Then 형식, 어느 track/폴더에 쓸지, pytest 실행 |
-| **add-length-unit** | “inch 추가”, OCP 검증 | `LengthUnit` + Registry 등록만, converter 미수정 |
-| **boundary-cli** | Track A, `--format` | `cli.py` + formatter, subprocess 테스트 패턴 |
-| **config-externalize** | EXT-01 | `units.json` 스키마, `config_loader` 위치 |
-
-Skill은 **Report/01(PRD), Report/02(추적표)를 reference.md로 링크**하면 Agent가 spec을 벗어나기 어렵습니다.
-
-### Command (Skill 다음 — 단축 버튼)
-
-반복 작업이 많을 때 Command가 효과적입니다. spec 확정 후 추가 권장:
-
-| Command | 역할 |
-|---------|------|
-| `/red FR-01` | `tests/boundary/test_fr01_*.py` RED 스캐폴드 |
-| `/track-b` | `pytest tests/entity tests/control -v` |
-| `/track-a` | `pytest tests/boundary -v` |
-| `/traceability` | FR/NFR/EXT ↔ 테스트 파일 매핑 점검 |
-
-Command는 Skill을 **한 줄로 호출**하는 버튼이므로, Skill 없이 Command만 만들면 Agent가 매번 다른 방식으로 테스트를 쓸 수 있습니다.
-
----
-
-## 4. 권장 진행 순서 (spec → 구현)
-
-```mermaid
-flowchart LR
-    S1[spec: ECB 매핑 + CLI 계약 + 추적표] --> S2[Rule: OCP/SRP/ECB/TDD]
-    S2 --> S3[Skill: dual-track-red 등]
-    S3 --> S4[Command: /red /track-b]
-    S4 --> S5[P0 Red: FR-01~05, NFR-01~02]
-    S5 --> S6[Green + Refactor]
-    S6 --> S7[P1 EXT Red-Green]
-```
-
-**P0 TDD 우선순위 제안** (추적표 기준):
-
-1. **Track B**: FR-02(변환), NFR-01(OCP — inch 추가 테스트), entity/control
-2. **Track B**: FR-04(음수), FR-03(미지 단위) — entity 검증
-3. **Track A**: FR-01(파싱), FR-05(형식), NFR-02(SRP — 모듈 분리 검증) — boundary
-4. **P1**: EXT-01~03 — boundary + config
-
----
-
-## 5. 한 줄 결론
-
-- **Harness**: ECB + Dual-Track **골격은 staging/spec에 맞음**. 다만 슬라이드의 **모듈 4분할·CLI 패키지명·추적 ID 네이밍**은 spec 문서(Report)에서 Harness와 **명시적으로 연결**해야 “맞게 구성됐다”고 확정할 수 있음.
-- **다음**: Rule(OCP/SRP/ECB/TDD 헌법) → Skill(Red 테스트·단위 추가·CLI 매뉴얼) → Command(/red, /track-b) 순.
-- **Hook**(`afterFileEdit` → pytest)은 P0 Green 사이클이 돌아가기 시작한 **구현 단계 이후**에 추가해도 늦지 않음.
-
-Report/01·02 내용을 repo에 두거나 붙여 주시면, FR별로 **어느 ECB 폴더·어느 Track에 Red를 먼저 쓸지** 파일 단위 체크리스트까지 더 구체적으로 정리해 드릴 수 있습니다. (Ask 모드라 파일 생성은 Agent 모드에서 가능합니다.)
-
----
-
-## Turn 16 — USER
-
-ECB+Dual Track TDD 시 사용할 cursor.ai 기술 몇가지 예 작성과 실행방법 알려줘.
-
----
-
-## Turn 17 — ASSISTANT
-
-ECB + Dual-Track TDD에 맞는 Cursor 기능 예시를 정리하기 위해 프로젝트 구조와 Cursor 설정 형식을 확인합니다.
-
-_[Tools: Glob, Grep, Read]_
-
----
-
-## Turn 18 — ASSISTANT
+_[Response/tool activity redacted in export]_
 
 _[Tools: Read, Read, Read]_
 
 ---
 
-## Turn 19 — ASSISTANT
+## Turn 15 — ASSISTANT
 
-UnitConverter_04의 ECB + Dual-Track TDD에 바로 쓸 수 있는 **Cursor 기술 예시**와 **실행 방법**입니다. (현재 Harness: `src/entity|control|boundary`, `tests/entity|control|boundary`)
+네, 가능합니다. 지금은 **Ask 모드**라 파일을 직접 만들 수는 없고, 아래 초안을 복사해 `.cursor/rules/`에 넣거나 **Agent 모드**로 전환하시면 제가 생성해 드릴 수 있습니다.
+
+`Report/01`, `Report/02`, `Report/03`과 슬라이드 자료를 반영해 **Rule 3개**로 나눴습니다. (한 파일에 몰지 않고, Cursor 권장대로 관심사별 분리)
 
 ---
 
-## 전체 흐름: 무엇을 언제 쓰나
+## 권장 파일 구조
 
-```mermaid
-flowchart LR
-    R[Rule 헌법] --> A[Agent 모드]
-    S[Skill 매뉴얼] --> A
-    C[Command /버튼] --> A
-    A --> T[Tool: pytest·파일편집]
-    T --> H[Hook 자동검증]
-    H --> A
+```
+.cursor/rules/
+├── project-context.mdc      # alwaysApply — PRD·추적·우선순위
+├── ecb-architecture.mdc     # src/** — ECB 배치·SRP·OCP
+└── dual-track-tdd.mdc       # tests/** — Red/Green·Track A/B
 ```
 
-| Cursor 기술 | ECB/TDD에서 역할 | 비유 |
-|------------|-----------------|------|
-| **Rule** | OCP/SRP/ECB 경계, TDD 순서 고정 | 헌법 |
-| **Skill** | FR Red 작성, 단위 추가, Track 실행 절차 | 직무 매뉴얼 |
-| **Command** | `/red-fr02`, `/track-b` 한 번에 실행 | 버튼 |
-| **Hook** | 저장 후 pytest, 위험 git 차단 | CCTV |
-| **Agent / Ask** | 구현 vs spec·리뷰 분리 | 반장 vs 자문 |
-| **@ 참조** | Report, 추적표, 특정 track 폴더 지정 | 서류 전달 |
-| **MCP** | GitHub 이슈/PR, (선택) 외부 도구 | 외부 장비 |
-
 ---
 
-## 1. Rule — `.cursor/rules/*.mdc`
-
-**역할:** 매 대화마다 Agent가 지켜야 할 ECB·TDD 원칙.
-
-### 예 1: 전역 TDD 헌법 (`ecb-tdd.mdc`)
+## 1. `.cursor/rules/project-context.mdc`
 
 ```markdown
 ---
-description: ECB Dual-Track TDD workflow for UnitConverter_04
+description: UnitConverter_04 PRD, 추적성, 우선순위
 alwaysApply: true
 ---
 
-# ECB + Dual-Track TDD
+# UnitConverter_04 — 프로젝트 컨텍스트
 
-- P0(FR/NFR) Red → Green → Refactor. P1(EXT)는 P0 Green 후.
-- Track B(빠름): tests/entity, tests/control — 도메인·유스케이스
-- Track A(느림): tests/boundary — CLI·파싱·포맷
-- entity: I/O 금지. boundary: 변환 비율 계산 금지.
-- OCP: 새 단위는 Registry/설정만. converter.py 수정 금지.
-- SRP: Parser / Registry / Converter / Formatter 분리 유지.
-- 테스트 파일명·docstring에 FR/NFR/EXT ID 포함.
-- 구현 전 Red 테스트 먼저. Green 전 production 코드 최소화.
+## 목표
+레거시 `UnitConverter.py`(37줄)를 ECB + Dual-Track TDD로 재구현한다.
+PRD·테스트·코드는 Report/01, Report/02와 1:1 추적한다.
+
+## P0 (먼저)
+- FR-01~05: 파싱, 전 단위 출력, 미지 단위/음수/형식 오류
+- NFR-01~02: OCP(단위 추가 시 converter 미수정), SRP(4모듈 분리)
+- 변환: 1m = 3.28084ft = 1.09361yd; feet↔yard는 meter 경유
+
+## P1 (P0 Green 후)
+- EXT-01: units.json/YAML 로드
+- EXT-02: 동적 단위 등록 (예: 1 cubit = 0.4572 meter)
+- EXT-03: `--format json|csv|table`
+
+## 레거시 시드 — 하지 말 것
+- `UnitConverter.py`의 if/elif 분기, 하드코딩 비율, main() 혼합 로직을 새 코드에 복사하지 않는다.
+- `UnitConverter.py`는 참고용 시드로 유지; 신규 구현은 `src/`에만 둔다.
+
+## 참고 문서
+- `Report/01/PRD_Summary.md`
+- `Report/02/Traceability_Matrix.md`
 ```
 
-### 예 2: Entity 계층 전용 (`entity-layer.mdc`)
+---
+
+## 2. `.cursor/rules/ecb-architecture.mdc`
 
 ```markdown
 ---
-description: Entity layer constraints (domain logic only)
-globs: src/entity/**,tests/entity/**
+description: ECB 계층 배치, OCP/SRP, 모듈 분리
+globs: src/**/*.py
 alwaysApply: false
 ---
 
-# Entity Layer
+# ECB 아키텍처
 
-- meter 기준 변환만. feet↔yard는 meter 경유.
-- 비율: 1m=3.28084ft, 1m=1.09361yd.
-- 음수·미지 단위는 entity 또는 control에서 검증.
-- print, input, argparse, json.load 금지.
-```
+## 계층 배치
+| 계층 | 경로 | 책임 |
+|------|------|------|
+| Entity | `src/entity/` | LengthUnit, UnitRegistry, Converter |
+| Control | `src/control/` | 유스케이스 조율 (파싱 결과 → 변환 → 출력 조립) |
+| Boundary | `src/boundary/` | InputParser, OutputFormatter, ConfigLoader, CLI |
 
-### 실행 방법
+## SRP (NFR-02) — 한 파일 = 한 역할
+- Parser: `unit:value` 파싱·검증만
+- Registry: 단위 등록·조회만
+- Converter: meter 기준 변환만
+- Formatter: json/csv/table 출력만
 
-1. 파일 생성: `.cursor/rules/ecb-tdd.mdc` (프로젝트 루트)
-2. **자동 적용**
-   - `alwaysApply: true` → 모든 Agent 채팅에 포함
-   - `globs: src/entity/**` → 해당 파일을 열거나 편집할 때 포함
-3. 확인: **Cursor Settings → Rules** 에서 프로젝트 Rule 목록 확인
-4. 채팅에서 Agent 모드로 `"FR-02 Red 테스트 작성"` 요청 → Rule이 자동으로 컨텍스트에 들어감
+## OCP (NFR-01)
+- 새 단위 추가: `LengthUnit` 구현 + `registry.register()` 또는 설정 1줄
+- `converter.py` 핵심 로직은 수정하지 않는다
+- `if/elif` 단위 분기 금지
 
----
+## CLI (spec)
+- 진입: `python -m unit_converter "meter:2.5"`
+- Boundary에 `__main__.p
 
-## 2. Skill — `.cursor/skills/<name>/SKILL.md`
-
-**역할:** 특정 작업이 나올 때 Agent가 따라야 할 **상세 절차서**. Rule보다 구체적.
-
-### 예 1: Dual-Track Red (`dual-track-red/SKILL.md`)
-
-```markdown
----
-name: dual-track-red
-description: Write RED pytest tests for FR/NFR IDs using ECB Dual-Track layout. Use when user asks for Red test, FR-XX, NFR-XX, or TDD red phase.
----
-
-# Dual-Track RED Test
-
-## Track 선택
-| ID | 폴더 |
-|----|------|
-| FR-01, FR-05 | tests/boundary/ |
-| FR-02, FR-03, FR-04, NFR-01 | tests/entity/ 또는 tests/control/ |
-| NFR-02 (모듈 분리) | tests/boundary/ + import 검사 |
-| EXT-* | tests/boundary/ (P1) |
-
-## RED 작성 규칙
-1. Given/Then은 Report/02 추적표 그대로 docstring에 기록.
-2. 아직 없는 import만 작성 → pytest 실패(Red) 확인.
-3. `python -m pytest tests/entity -v` 또는 해당 track 실행.
-4. Green 코드는 이 Skill 범위 밖 — 사용자가 요청할 때만.
-
-## 파일명
-`test_fr02_convert_all_units.py`, `test_nfr01_ocp_add_inch.py`
-```
-
-### 예 2: OCP 단위 추가 (`add-length-unit/SKILL.md`)
-
-```markdown
----
-name: add-length-unit
-description: Add a new length unit via Registry without modifying converter core (OCP). Use when adding inch, cubit, or dynamic unit registration.
----
-
-# Add Length Unit (OCP)
-
-1. entity에 LengthUnit 구현 또는 설정 항목 추가.
-2. unit_registry에 등록.
-3. converter.py는 수정하지 않음.
-4. tests/entity/test_nfr01_*.py 로 inch 추가 시 기존 converter 변경 없음 검증.
-5. pytest Track B 실행.
-```
-
-### 실행 방법
-
-| 방식 | 어떻게 |
-|------|--------|
-| **자동** | description과 맞는 요청 시 Agent가 Skill을 읽음. 예: `"FR-02 Red 테스트 작성해줘"` |
-| **수동** | 채팅에 `@dual-track-red` 또는 Skill 이름 언급 |
-| **위치** | 프로젝트 공유: `.cursor/skills/` / 개인: `~/.cursor/skills/` |
-
-> `~/.cursor/skills-cursor/`는 Cursor 내장용 — 여기에 만들지 않음.
+_[...truncated for readability...]_
 
 ---
 
-## 3. Command — `.cursor/commands/*.md` (또는 Skill + `disable-model-invocation`)
+## Turn 16 — USER
 
-**역할:** 자주 쓰는 TDD 루틴을 **슬래시 명령**으로 고정.
-
-### 예 1: Track B 실행 (`track-b.md`)
-
-```markdown
-# Run Track B tests (entity + control)
-
-Run Dual-Track B only:
-```
-pytest tests/entity tests/control -v
-```
-Report failures with FR/NFR ID. Do not fix production code unless tests are Green-ready.
-```
-
-### 예 2: FR Red 스캐폴드 (`red-fr02.md`)
-
-```markdown
-# RED test for FR-02
-
-Read Report/02 traceability for FR-02.
-Create tests/entity/test_fr02_convert_all_units.py with RED test only:
-- Given: meter 2.5
-- Then: feet≈8.2021, yard≈2.7340
-Run pytest. Confirm FAIL (Red). No src/ implementation yet.
-Apply dual-track-red skill if available.
-```
-
-### 최신 형식 (Command → Skill 통합)
-
-Cursor는 Command를 Skill로 통합하는 방향입니다. 슬래시 전용이면:
-
-```markdown
----
-name: track-b
-description: Run Track B pytest (entity + control)
-disable-model-invocation: true
----
-# Run Track B tests
-...
-```
-
-### 실행 방법
-
-1. 파일: `.cursor/commands/track-b.md` **또는** `.cursor/skills/track-b/SKILL.md`
-2. 채팅 입력창에 **`/`** 입력 → 목록에서 `track-b` 선택
-3. Agent가 Skill/Command 본문대로 pytest 실행·파일 생성
-4. `disable-model-invocation: true` → **사용자가 `/`로만** 호출 (자동 추천 안 됨)
+UnitConverter_04 루트에 .cursorrules 초안을 새로 만들어줘(현재 없음). 위 3가지 내용 모두 포함해서 .cursorrules 로 작성해야해.
 
 ---
 
-## 4. Hook — `.cursor/hooks.json` + 스크립트
+## Turn 17 — ASSISTANT
 
-**역할:** TDD 루프 자동화 — “코드 고치면 테스트”, “위험 명령 차단”.
+`.cursorrules` 단일 파일로 3가지 Rule 내용을 합쳐 루트에 생성합니다.
 
-### 예 1: 테스트 파일 수정 후 Track B 자동 실행
+[REDACTED]
 
-`.cursor/hooks.json`:
-
-```json
-{
-  "version": 1,
-  "hooks": {
-    "afterFileEdit": [
-      {
-        "command": ".cursor/hooks/run-track-b.sh",
-        "matcher": "Write"
-      }
-    ]
-  }
-}
-```
-
-`.cursor/hooks/run-track-b.sh` (개념):
-
-```bash
-#!/bin/bash
-# stdin JSON에서 편집된 파일 경로 확인 후 tests/entity|control 변경 시만 pytest
-cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-python -m pytest tests/entity tests/control -q --tb=no 2>&1 | tail -5
-exit 0
-```
-
-### 예 2: `git push --force` 차단
-
-```json
-{
-  "version": 1,
-  "hooks": {
-    "beforeShellExecution": [
-      {
-        "command": ".cursor/hooks/block-force-push.sh",
-        "matcher": "git push.*--force",
-        "failClosed": true
-      }
-    ]
-  }
-}
-```
-
-### 실행 방법
-
-1. `.cursor/hooks.json` 생성 (프로젝트 루트 기준 경로)
-2. 스크립트에 실행 권한 (`chmod +x` — Windows는 Git Bash/WSL 또는 `.ps1` 사용)
-3. **Cursor 재시작** 또는 새 Agent 세션
-4. Agent가 파일 편집/셸 실행 시 **자동** 트리거 — 채팅 입력 불필요
-5. 이벤트 종류: `afterFileEdit`, `beforeShellExecution`, `postToolUse`, `stop` 등 ([Hooks 문서](https://cursor.com/docs/hooks))
-
-> Hook은 P0 Red/Green 사이클이 돌아가기 시작한 **구현 단계**부터 켜는 것을 권장.
+_[Tools: Write]_
 
 ---
 
-## 5. Agent / Ask 모드 + @ 참조
+## Turn 18 — ASSISTANT
 
-ECB TDD에서 **모드 분리**가 중요합니다.
+`.cursorrules`를 `UnitConverter_04` 루트에 생성했습니다.
 
-| 모드 | 용도 | 예시 프롬프트 |
-|------|------|--------------|
-| **Ask** | spec, 아키텍처, Red 테스트 설계만 | `"FR-03은 entity vs control 어디?"` |
-| **Agent** | Red/Green 코드·pytest 실행 | `"FR-02 Red 작성하고 pytest 실행"` |
+**포함된 3개 섹션**
 
-### @ 참조 예시 (채팅 입력)
+| 섹션 | 내용 |
+|------|------|
+| **1. 프로젝트 컨텍스트** | P0/P1 요구사항, 변환 로직, CLI spec, 레거시 금지 사항, Report 참조 |
+| **2. ECB 아키텍처** | entity/control/boundary 배치, SRP 4모듈, OCP 규칙, CLI 진입점 |
+| **3. Dual-Track TDD** | Track A/B 정의, pytest 명령, Red→Green 순서, 네이밍, Given/Then 표 |
 
-```
-@Report/02 @tests/entity FR-02 Red 테스트만 작성. src/ 구현 금지.
-```
+Cursor가 이 프로젝트를 열면 루트 `.cursorrules`가 자동으로 컨텍스트에 반영됩니다. 다음으로 Skill이나 Command를 추가하려면 Agent 모드에서 말씀해 주세요.
 
-```
-@src/entity @.cursor/rules/ecb-tdd.mdc inch 추가 시 OCP 지키며 Green
-```
-
-### 실행 방법
-
-- 채팅 입력창에 `@` → 파일/폴더 선택
-- **Agent 모드**에서만 파일 생성·터미널 실행 가능
-- **Ask 모드**는 설계·리뷰만 (현재처럼 spec 단계에 적합)
+[REDACTED]
 
 ---
 
-## 6. Agent Tool (내장) — pytest Dual-Track
+## Turn 19 — USER
 
-Rule/Skill 없이도 Agent가 쓰는 **기본 Tool**. Harness와 직접 연결.
-
-| Tool | Dual-Track 용도 |
-|------|----------------|
-| **Shell** | `pytest tests/entity tests/control -v` (Track B) |
-| **Shell** | `pytest tests/boundary -v` (Track A) |
-| **Write/Read** | `tests/entity/test_fr02_*.py` Red 작성 |
-| **Grep** | FR ID 커버리지 확인 |
-
-### 실행 방법 (직접 또는 Agent에게 지시)
-
-```powershell
-cd c:\DEV\UnitConverter_04
-python -m pip install pytest
-python -m pytest tests/entity tests/control -v   # Track B
-python -m pytest tests/boundary -v                 # Track A
-python -m pytest --collect-only -q                 # 수집만
-```
-
-Agent에게: `"Track B pytest 돌리고 실패 목록 FR ID로 정리해줘"`
+.cursorrules 초안을 리뷰하고 빠진 규칙이 있을지 검토해줘
 
 ---
 
-## 7. MCP (선택) — GitHub 등
+## Turn 20 — ASSISTANT
 
-실습/팀 협업 시 유용. UnitConverter 단독 TDD에는 필수 아님.
+`.cursorrules`와 Report·README를 대조해 빠진 규칙이 있는지 검토합니다.
 
-| MCP | TDD 활용 |
-|-----|---------|
-| **GitHub** | FR별 이슈 생성, PR 리뷰, CI 상태 확인 |
-| **Sequential Thinking** | 복잡한 NFR-02 모듈 분리 설계 정리 |
+[REDACTED]
 
-### 실행 방법
-
-1. **Cursor Settings → MCP** 에서 서버 활성화
-2. Agent 채팅: `"FR-01~05 각각 GitHub issue 만들어줘"`
-3. Agent가 MCP Tool로 API 호출 (인증 필요 시 `mcp_auth`)
-
----
-
-## 8. Subagent (Task) — Track 병렬 작업
-
-Track B(entity)와 Track A(boundary)를 **동시에** 탐색/작성할 때.
-
-### 예시 프롬프트 (Agent 모드)
-
-```
-Subagent 2개 병렬:
-1) tests/entity FR-02, FR-04 Red만
-2) tests/boundary FR-01, FR-05 Red만
-공통 Rule: src/ 구현 금지, Report/02 Given/Then 준수
-```
-
-### 실행 방법
-
-- Agent 모드에서 자연어로 요청 → Agent가 `Task` tool로 subagent 실행
-- `explore`: 코드베이스 읽기 전용 / `shell`: pytest 전용 등 역할 분리 가능
-
----
-
-## 9. User Rules (Cursor Settings)
-
-프로젝트 Rule과 별도로 **개인 전역** 설정.
-
-### 예 (Settings → Rules → User Rules)
-
-```
-커밋은 내가 요청할 때만.
-테스트 없이 src/entity Green 코드 작성 금지.
-```
-
-### 실행 방법
-
-- **Cursor Settings → General → Rules for AI** 에 텍스트 입력
-- 모든 프로젝트에 적용 — UnitConverter_04 Rule과 **중복되지 않게** (전역=습관, 프로젝트=ECB 헌법)
-
----
-
-## ECB TDD 실습 시 추천 적용 순서
-
-| 단계 | Cursor 기술 | 할 일 |
-|------|------------|------|
-| spec (지금) | Ask + @Report | Track/FR 매핑 확정 |
-| 1 | **Rule** 2~3개 | ECB, OCP, Dual-Track |
-| 2 | **Skill** `dual-track-red` | Red 작성 절차 고정 |
-| 3 | **Command** `/track-b`, `/red-fr02` | 반복 루틴 단축 |
-| 4 | **Agent** + pytest | P0 Red → Green |
-| 5 | **Hook** `afterFileEdit` | 저장 시 Track B 자동 |
-
----
-
-## 한 번에 써 보는 시나리오 (P0 FR-02)
-
-1. **Rule** 적용된 상태에서 Agent 모드
-2. 입력:
-   ```
-   /red-fr02
-   ```
-   또는
-   ```
-   @Report/02 FR-02 Red만. tests/entity에 작성. pytest로 Red 확인.
-   ```
-3. Agent → `tests/entity/test_fr02_*.py` 생성 → `pytest tests/entity -v` → **FAIL 확인**
-4. 입력:
-   ```
-   @src/entity @src/control FR-02 Green. OCP/SRP Rule 준수.
-   ```
-5. `/track-b` 또는 `pytest tests/entity tests/control -v` → **PASS**
-6. (선택) Hook 켜서 이후 편집마다 Track B 자동 검증
-
----
-
-파일을 실제로 만들려면 **Agent 모드**로 전환해 주시면, Rule 2개 + Skill 1개 + Command 2개를 UnitConverter_04 Harness에 맞춰 생성해 드릴 수 있습니다.
-
----
-
-## Turn 20 — USER
-
-지금까지 진행상황 Report 폴더에 보고서 생성하고, Prompting 폴더에 Transcript도 Export 해줘
+_[Tools: Read, Read, Read, Read, Read, Read]_
 
 ---
 
 ## Turn 21 — ASSISTANT
 
-Ask 모드라 파일은 직접 생성할 수 없습니다. 진행 내용과 트랜스크립트를 확인한 뒤, Agent 모드에서 바로 만들 수 있도록 초안을 정리하겠습니다.
+`.cursorrules` 초안을 `Report/01~03`, `README.md`, `pyproject.toml`과 대조해 검토했습니다.
 
-_[Tools: Glob, Read]_
+---
+
+## 총평
+
+**PRD·ECB·Dual-Track TDD의 핵심은 잘 담겨 있습니다.** P0/P1 우선순위, 레거시 금지, 계층 배치, Red→Green 순서, Given/Then 표까지 실습에 바로 쓸 수 있는 수준입니다.
+
+다만 **spec 미확정 사항**, **테스트 배치 세부 규칙**, **구현 일관성 규칙**이 빠져 있어 Agent가 구현 단계에서 서로 다른 선택을 할 여지가 있습니다.
+
+---
+
+## 잘 된 점
+
+| 항목 | 평가 |
+|------|------|
+| P0/P1 분리 | FR/NFR/EXT 전부 포함, P1은 P0 Green 후 명시 |
+| 레거시 anti-pattern | if/elif, 하드코딩, main() 혼합 금지 명확 |
+| ECB 매핑 | 슬라이드 모듈 ↔ `src/` 경로 대응 |
+| Dual-Track | Track A/B, pytest 명령, Red 순서 일치 |
+| 운영 규칙 | commit/범위 최소화/시드 유지 |
+
+---
+
+## 빠진 규칙 (우선 추가 권장)
+
+### 1. 패키지명·CLI 진입점 미확정 (Report/01 갭)
+
+`pyproject.toml`은 `name = "unit-converter"`인데, CLI spec은 `python -m unit_converter`입니다. Agent가 어느 쪽을 따를지 모호합니다.
+
+**추가 권장:**
+```
+- 패키지/모듈명: unit_converter (CLI: python -m unit_converter)
+- pyproject.toml name(unit-converter)와 모듈명(unit_converter) 구분을 명시
+- Boundary에 unit_converter/__main__.py 배치 (또는 src/boundary/__main__.py + 패키지 구조 확정)
+```
+
+### 2. `tests/control/` 역할 미정의 (Report/03 갭 #4)
+
+Track B에 `entity`와 `control`이 함께 있지만, **어떤 FR을 어느 폴더에 둘지** 규칙이 없습니다.
+
+**Report/02 기준 추가 권장:**
+
+| FR | 권장 폴더 |
+|----|----------|
+| FR-02 | `tests/entity/` (순수 변환) 또는 `tests/control/` (유스케이스) |
+| FR-03, FR-04 | `tests/entity/` |
+| NFR-01 | `tests/entity/` |
+| EXT-02 | `tests/control/` |
+| FR-01, FR-05 | `tests/boundary/` |
+
+→ **"entity = 도메인 단위, control = 유스케이스 조율, boundary = I/O·CLI"** 한 줄 정의가 필요합니다.
+
+### 3. NFR-02 검증 방법 누락
+
+Report/02는 NFR-02를 **import 검사**로 검증한다고 합니다. 현재 Rule에는 "분리"만 있고 **어떻게 검증할지** 없습니다.
+
+**추가 권장:**
+```
+- NFR-02: Parser/Registry/Converter/Formatter가 서로 import하지 않거나,
+  boundary→control→entity 단방향 의존만 허용
+- tests/boundary/에서 import 구조 검사 테스트 포함
+```
+
+### 4. ECB 의존 방향 규칙 없음
+
+계층 배치는 있지만 **import 방향**이 없어 Entity가 Boundary를 import하는 실수를 막지 못합니다.
+
+**추가 권장:**
+```
+- entity: 외부 계층 import 금지
+- control: entity만 import
+- boundary: control, entity import 가능
+```
+
+### 5. 파싱 경계 케이스 규칙 없음
+
+레거시 문제 #5(`split(':', 1)` 취약)는 언급됐지만, **새 Parser가 처리해야 할 케이스**가 없습니다.
+
+_[...truncated for readability...]_
 
 ---
 
 ## Turn 22 — USER
 
-지금까지 진행상황 Report 폴더에 보고서 생성하고, Prompting 폴더에 Transcript도 Export 해줘
+어떤식으로 보완할지 알려줘
 
 ---
 
 ## Turn 23 — ASSISTANT
 
-진행 상황을 정리해 Report 보고서를 작성하고, 대화 Transcript를 Prompting 폴더에 내보냅니다.
+_[Response/tool activity redacted in export]_
+
+_[Tools: Read]_
+
+---
+
+## Turn 24 — ASSISTANT
+
+보완은 **기존 3섹션 구조는 유지**하고, 빠진 “구현 표준”만 **4개 블록**으로 끼워 넣는 방식이 가장 좋습니다. 전체를 다시 쓰기보다 **어디에 무엇을 추가할지** 기준으로 정리했습니다.
+
+---
+
+## 보완 전략 (원칙)
+
+| 원칙 | 이유 |
+|------|------|
+| 섹션 3개 유지 | 이미 읽기 좋음 — 구조 깨지 않음 |
+| “규칙”만 추가, 설명·배경은 최소화 | Agent가 따르기 쉬운 짧은 문장 위주 |
+| 미확정 spec은 **한 곳에서 확정** | 패키지명·오류 스타일·정밀도 등 |
+| P0 규칙 먼저, P1(EXT)은 기존 표에 행만 추가 | 우선순위와 일치 |
+
+**추천 최종 구조:**
+
+```
+1. 프로젝트 컨텍스트     ← Harness·정밀도·기본단위 추가
+2. ECB 아키텍처         ← 의존 방향·Protocol·패키지/CLI 확정 추가
+3. Dual-Track TDD       ← FR별 폴더·오류·파싱 경계·EXT Given/Then 추가
+   (신규) 4. 구현 표준   ← 짧은 체크리스트 (선택, 또는 2·3에 분산)
+```
+
+---
+
+## 1섹션 보완 — `프로젝트 컨텍스트`
+
+**삽입 위치:** `### 변환 로직` 바로 아래
+
+```markdown
+### Harness (pyproject.toml)
+- Python >= 3.10, dev 의존성은 pytest만 (불필요한 패키지 추가 금지)
+- `pythonpath = ["src"]` — 테스트·코드 import는 `entity.*`, `control.*`, `boundary.*`
+- 전체 실행: `pytest -v` / Track별은 §3 참조
+
+### 출력·검증 정밀도
+- PRD/Report 기준: 소수 4자리 (예: 8.2021 feet)
+- README의 8.2 feet는 반올림 예시; 테스트는 `pytest.approx(..., rel=1e-4)` 사용
+- 기본 출력 포맷: table (`2.5 meter = 8.2021 feet` 형식)
+
+### 기본 단위 부트스트랩
+- Registry 초기 등록: meter, feet, yard
+- 1m = 3.28084ft, 1m = 1.09361yd (feet↔yard는 meter 경유)
+```
+
+**삽입 위치:** `### 참고 문서`에 한 줄 추가
+
+```markdown
+- `README.md` (원본 요구), `Report/03/Progress_Status.md` (진행 추적)
+```
+
+---
+
+## 2섹션 보완 — `ECB 아키텍처`
+
+**삽입 위치:** `### CLI (spec)` — **모호함 해소가 핵심**
+
+기존 내용을 아래로 **교체·확장**:
+
+```markdown
+### 패키지·CLI (확정 spec)
+- PyPI/프로젝트명: `unit-converter` (pyproject.toml)
+- Python 모듈·CLI: `unit_converter` → `python -m unit_converter "meter:2.5"`
+- 진입점: `src/boundary/`에 `__main__.py` 또는 `cli.py` + `-m` 실행 경로
+- 레거시 `python UnitConverter.py`는 시드 참고용; 신규 CLI로 대체
+
+### 계층 의존 방향 (위반 금지)
+- `entity` → 외부 계층 import 금지
+- `control` → `entity`만 import
+- `boundary` → `control`, `entity` import 가능
+- Parser/Registry/Converter/Formatter는 서로 직접 호출·import 최소화 (NFR-02)
+
+### LengthUnit (OCP 핵심)
+- `Protocol` 또는 동등 인터페이스: `name: str`, `to_meter(value: float) -> float`
+- 신규 단위: `LengthUnit` 구현 + `registry.register()` (converter 수정 없음)
+```
+
+**삽입 위치:** `### SRP` 아래 — 파싱 책임 명확화
+
+```
+
+_[...truncated for readability...]_
+
+---
+
+## Turn 25 — USER
+
+기준은 아까 첨부해준 project 자료를 기준으로 하고 README에서 틀린 부분 있으면 이부분 수정해줘
+
+---
+
+## Turn 26 — ASSISTANT
+
+README와 Report·PRD 자료를 대조해 틀린 부분을 찾겠습니다.
+
+[REDACTED]
+
+_[Tools: Read, Read, Read, Read]_
+
+---
+
+## Turn 27 — ASSISTANT
+
+`README.md`를 PRD 슬라이드·`Report/01`·`Report/02` 기준으로 대조했습니다. **틀리거나 모호한 부분**과 **수정안**을 정리합니다.
+
+지금은 **Ask 모드**라 파일을 직접 수정할 수 없습니다. 아래 내용을 반영하려면 **Agent 모드**로 전환해 주세요.
+
+---
+
+## README에서 틀린/모호한 부분
+
+| # | README 현재 | 프로젝트 자료 (정본) | 판정 |
+|---|------------|---------------------|------|
+| 1 | `8.2 feet`, `2.7 yard` | `8.2021 feet`, `2.7340 yard` (FR-02) | **오류** — 반올림 1자리, 정밀도 불일치 |
+| 2 | `python UnitConverter.py` 만 안내 | `python -m unit_converter "meter:2.5"` (PRD CLI) | **구식** — 타깃 CLI 미반영 |
+| 3 | SRP: "클래스 구성" (추상적) | Parser / Registry / Converter / Formatter 분리 (NFR-02) | **모호** |
+| 4 | 출력: "JSON / CSV / 표" | `--format json \| csv \| table` (EXT-03) | **누락** — CLI 플래그 없음 |
+| 5 | 설정: "JSON/YAML" | `units.json` 또는 YAML (EXT-01) | **모호** — 예시 파일명 없음 |
+| 6 | 아키텍처·테스트 구조 없음 | ECB + Dual-Track TDD, `src/`·`tests/` | **누락** (틀린 건 아니나 자료와 불일치) |
+
+**맞는 부분 (수정 불필요):** 입력 형식 `meter:2.5`, 기본 3단위, 변환 비율 상수, OCP, 입력 검증 3종, EXT-02 cubit 예시, Activities 일정.
+
+---
+
+## 수정안 (섹션별)
+
+### 1. `### 가상환경 설정 및 실행` — 교체
+
+```markdown
+### 가상환경 설정 및 실행
+```bash
+# 가상환경 생성
+python -m venv venv
+
+# 가상환경 활성화 (Windows)
+venv\Scripts\activate
+
+# 가상환경 활성화 (macOS/Linux)
+source venv/bin/activate
+
+# 레거시 시드 실행 (분석·참고용)
+python UnitConverter.py
+
+# 타깃 CLI 실행 (ECB 재구현 후)
+python -m unit_converter "meter:2.5"
+
+# 테스트 (Dual-Track)
+pytest tests/entity tests/control -v   # Track B — 도메인
+pytest tests/boundary -v               # Track A — CLI·통합
+
+# 가상환경 비활성화
+deactivate
+```
+```
+
+### 2. `### 기본 요구사항` 항목 1 출력 예시 — 수정
+
+**Before:**
+```
+2.5 meter = 8.2 feet
+2.5 meter = 2.7 yard
+```
+
+**After:**
+```
+2.5 meter = 8.2021 feet
+2.5 meter = 2.7340 yard
+...
+```
+
+> 근거: `Report/01` L18, `Report/02` FR-02 Then (`feet≈8.2021, yard≈2.7340`)
+
+### 3. `### 품질 요구사항` — SRP 구체화
+
+**Before:**
+```markdown
+- SRP를 만족하는 클래스 구성
+```
+
+**After:**
+```markdown
+- SRP: Parser / Registry / Converter / Formatter 모듈 분리
+```
+
+### 4. `### 추가 요구사항` — EXT 플래그·파일명 명시
+
+**Before:**
+```markdown
+- **설정 외부화**
+   - 변환 비율을 외부 설정 파일(JSON/YAML)에서 로드
+...
+- **출력 포맷 선택 기능** 
+   - JSON / CSV
+
+_[...truncated for readability...]_
+
+---
+
+## Turn 28 — USER
+
+.cursorrules 보완이랑 README 파일 수정 같이 진행해줘
+
+---
+
+## Turn 29 — ASSISTANT
+
+`.cursorrules` 보완과 `README.md` 수정을 함께 진행합니다.
+
+[REDACTED]
+
+_[Tools: Read, Read]_
+
+---
+
+## Turn 30 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Write, Write]_
+
+---
+
+## Turn 31 — ASSISTANT
+
+두 파일을 프로젝트 자료(PRD·Report/01~02) 기준으로 반영했습니다.
+
+---
+
+## `.cursorrules` 보완 (134줄 → 186줄)
+
+| 추가 항목 | 내용 |
+|----------|------|
+| Harness | pytest only, `pythonpath`, Python >= 3.10 |
+| 정밀도 | 소수 4자리, `pytest.approx(rel=1e-4)`, 기본 table |
+| 기본 단위 | Registry 초기 meter/feet/yard 부트스트랩 |
+| 의존 방향 | entity ← control ← boundary |
+| LengthUnit | Protocol (`name`, `to_meter`) |
+| Parser 경계 | `meter:2.5:extra`, 빈 값, trim 허용 |
+| 패키지·CLI | `unit-converter` vs `unit_converter` 구분 확정 |
+| FR별 테스트 폴더 | entity/control/boundary 고정 매핑 |
+| EXT Given/Then | EXT-01~03 표 추가 |
+| 오류 처리 | 도메인 예외 + boundary 메시지 |
+| C2C | docstring ID, Report/02 갱신 권장 |
+
+---
+
+## `README.md` 수정
+
+| 항목 | Before | After |
+|------|--------|-------|
+| 출력 예시 | 8.2 / 2.7 | **8.2021 / 2.7340** |
+| 실행 | `UnitConverter.py`만 | 레거시 + **`python -m unit_converter`** + pytest |
+| SRP | 클래스 구성 | **Parser/Registry/Converter/Formatter** |
+| EXT | JSON/YAML, 표 | **`units.json`**, **`--format json\|csv\|table`** |
+| 신규 | — | **프로젝트 방향**(ECB, Dual-Track, Report 참조) |
+
+다음 단계로 P0 Red 테스트(FR-02부터)를 시작할 수 있습니다.
+
+[REDACTED]
+
+---
+
+## Turn 32 — USER
+
+이제 skill, command 초안을 만들어야 spec 구상이 끝나는데 어떻게 하면 될까?
+
+---
+
+## Turn 33 — ASSISTANT
+
+프로젝트 spec과 Skill/Command 작성 가이드를 확인해 초안 구성을 제안하겠습니다.
+
+[REDACTED]
+
+_[Tools: Read, Read, Read, Glob]_
+
+---
+
+## Turn 34 — ASSISTANT
+
+Skill·Command 초안은 **Rule(헌법)과 역할을 나눠** 최소 세트로 만드는 게 좋습니다. `Report/03`과 `.cursorrules` 기준으로 정리했습니다.
+
+---
+
+## 먼저 역할 구분
+
+| 계층 | 역할 | UnitConverter_04 예 |
+|------|------|---------------------|
+| **Rule** (`.cursorrules`) | 항상 지킬 원칙 | ECB, FR 순서, OCP/SRP ✅ 완료 |
+| **Skill** | **절차·노하우** (어떻게 할지) | Red 테스트 작성법, 단위 추가법 |
+| **Command** | **원터치 프롬프트** (무엇을 실행할지) | `/track-b`, `/red-fr02` |
+
+> Rule = "무엇을 지킬지" / Skill = "어떻게 할지" / Command = "지금 이걸 해줘"
+
+---
+
+## 권장 파일 구조 (프로젝트 스킬·커맨드)
+
+```
+UnitConverter_04/
+├── .cursorrules              ✅ 있음
+└── .cursor/
+    ├── skills/
+    │   ├── dual-track-red/
+    │   │   └── SKILL.md      ← P0 Red 작성 절차
+    │   └── add-length-unit/
+    │       └── SKILL.md      ← NFR-01/OCP 단위 추가
+    └── commands/
+        ├── track-b.md        ← Track B pytest
+        ├── track-a.md        ← Track A pytest
+        ├── red-fr02.md       ← FR-02 Red 시작
+        └── green-entity.md   ← entity Green 최소 구현
+```
+
+- **위치**: 실습 공유용이면 `.cursor/skills/` (프로젝트)
+- **개인용**이면 `~/.cursor/skills/` — 이 프로젝트는 **프로젝트 스킬** 권장
+
+---
+
+## Skill 초안 2개 (핵심)
+
+### 1. `dual-track-red` — 가장 먼저
+
+**언제 쓰나**: "FR-02 Red 테스트 작성해줘", "P0 Red 시작" 할 때
+
+```markdown
+---
+name: dual-track-red
+description: >-
+  UnitConverter_04 Dual-Track TDD Red 단계. FR/NFR별 Red 테스트 파일 작성,
+  Given/Then docstring, Track A/B 폴더 배치. Red 테스트·실패 확인까지만.
+---
+
+# Dual-Track Red
+
+## 전제
+- `.cursorrules`, `Report/02/Traceability_Matrix.md` 준수
+- Red만 — src 구현은 Green 단계까지 하지 않음 (최소 import stub만 허용)
+
+## 절차
+1. FR ID 확인 (P0 순서: FR-02 → FR-04/03 → FR-01/05 → NFR-01/02)
+2. Track·폴더 결정 (.cursorrules §3 FR별 폴더 표)
+3. `tests/{entity|control|boundary}/test_{fr_id}_{slug}.py` 생성
+4. docstring 첫 줄: `FR-02: 전 단위 출력`
+5. Given/Then을 assert/raises로 표현
+6. `pytest.approx(..., rel=1e-4)` (FR-02)
+7. `pytest` 실행 → **실패(Red) 확인** 후 종료
+
+## 파일·폴더 매핑 (고정)
+| ID | 폴더 |
+|----|------|
+| FR-01, FR-05 | tests/boundary/ |
+| FR-02, FR-03, FR-04, NFR-01 | tests/entity/ |
+| NFR-02 | tests/boundary/ |
+| EXT-02 | tests/control/ |
+
+## Red 템플릿 (FR-02 예)
+```python
+"""FR-02
+
+_[...truncated for readability...]_
+
+---
+
+## Turn 35 — USER
+
+[Image]
+<image_files>
+The following images were provdied by the user and saved to the workspace for future use:
+1. C:\Users\usejen_id\.cursor\projects\c-DEV-UnitConverter-04/assets/c__Users_usejen_id_AppData_Roaming_Cursor_User_workspaceStorage_baaa0f73f0a06ddecb6fcd58dfb9e34a_images_image-204e2cb4-81ba-4a52-901e-4e07cb5fccf3.png
+
+These images can be copied for use in other locations.
+</image_files>
+이거 참고해서 이제 RED테스트 이전에 skill이랑 command 작업해야하는데 맞나 확인해줘
+
+---
+
+## Turn 36 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Read, Glob]_
+
+---
+
+## Turn 37 — ASSISTANT
+
+**맞습니다.** 슬라이드 8계층 흐름과 `Report/03` 권장 순서 모두 **RED 테스트(Test/Review Loop) 전에 Skill·Command를 끝내는 것**이 맞습니다.
+
+---
+
+## 8계층에서의 위치
+
+슬라이드 순서를 실습 단계로 보면:
+
+```
+Model / Agent        → Cursor IDE (이미 있음)
+Harness              → pyproject.toml, src/, tests/  ✅
+Rule                 → .cursorrules                   ✅
+Skill                → .cursor/skills/                ⬜ ← 지금
+Command              → .cursor/commands/              ⬜ ← 지금
+Tool / MCP           → pytest, 파일편집 등            (RED 때 사용)
+Test / Review Loop   → RED → Green → Refactor         ⬜ 다음
+Hook                 → hooks.json                     (Green 이후, 선택)
+```
+
+**Skill·Command는 “지침·절차” 계층**, **RED는 “검증” 계층**이라서 spec 구상 관점에서는 Skill/Command가 먼저입니다.
+
+---
+
+## 현재 프로젝트 상태
+
+| 계층 | 상태 | 비고 |
+|------|------|------|
+| Harness | ✅ | ECB + Dual-Track 골격 |
+| Rule | ✅ | `.cursorrules` (Report/03은 아직 “미착수”로 적혀 있음 — 갱신 필요) |
+| Skill | ❌ | `.cursor/` 폴더 자체 없음 |
+| Command | ❌ | 동일 |
+| RED | ❌ | `tests/`에 `__init__.py`만 |
+
+→ **RED 들어가기 전에 Skill·Command 초안을 만드는 게 맞는 타이밍**입니다.
+
+---
+
+## “반드시” vs “권장”
+
+| | 설명 |
+|---|------|
+| **기술적으로** | Skill/Command 없이도 RED 테스트 파일을 직접 작성 가능 |
+| **spec·실습 목적상** | Skill/Command 먼저가 맞음 — FR별 Red 절차·Track 실행이 매번 `.cursorrules`만으로 반복되지 않음 |
+| **Hook** | RED **이전이 아님** — Green 사이클 돌린 뒤 추가 (Report/03 #7) |
+
+---
+
+## spec 완료 기준 (RED 전 체크리스트)
+
+```
+✅ Report/01, 02
+✅ Harness (pyproject, src/, tests/)
+✅ Rule (.cursorrules)
+⬜ Skill  dual-track-red
+⬜ Skill  add-length-unit        (P0 중엔 선택, NFR-01 전에 필요)
+⬜ Command /track-b, /track-a
+⬜ Command /red-fr02             (첫 RED 진입용)
+⬜ (선택) /green-entity
+────────── spec 끝 ──────────
+⬜ P0 RED: FR-02부터
+```
+
+**최소 spec 완료**: Skill 1개(`dual-track-red`) + Command 3개(`/track-b`, `/track-a`, `/red-fr02`)
+
+---
+
+## 권장 작업 순서 (지금)
+
+1. `.cursor/skills/dual-track-red/SKILL.md`
+2. `.cursor/commands/track-b.md`, `track-a.md`, `red-fr02.md`
+3. 채팅에서 `/red-fr02` 실행 → Red 실패 확인 (spec 검증)
+4. 그다음 FR-02 Red 본격 작성 → Green
+
+---
+
+## 한 줄 결론
+
+> **Skill·Command를 RED 이전에 하는 판단이 맞습니다.** Rule·Harness까지 끝났으니,
+
+_[...truncated for readability...]_
+
+---
+
+## Turn 38 — USER
+
+skill 어떻게 작성할지 초안 알려줘
+
+---
+
+## Turn 39 — ASSISTANT
+
+`.cursorrules`와 Report를 기준으로 Skill 초안 형식을 정리합니다.
+
+[REDACTED]
+
+_[Tools: Read, Read]_
+
+---
+
+## Turn 40 — ASSISTANT
+
+Skill은 **프로젝트 루트**에 아래 구조로 두면 됩니다.
+
+```
+.cursor/skills/
+├── dual-track-red/
+│   └── SKILL.md      ← P0 필수 (RED 작성)
+└── add-length-unit/
+    └── SKILL.md      ← NFR-01 전에 (단위 추가)
+```
+
+Rule(`.cursorrules`)에 있는 내용은 **복붙하지 말고** “`.cursorrules` §3 참조”로 연결하세요.
+
+---
+
+## Skill 1: `dual-track-red` (필수)
+
+**파일:** `.cursor/skills/dual-track-red/SKILL.md`
+
+```markdown
+---
+name: dual-track-red
+description: >-
+  Writes UnitConverter_04 Dual-Track TDD Red tests per FR/NFR ID.
+  Places tests in tests/entity, tests/control, or tests/boundary,
+  adds Given/Then docstrings, runs pytest to confirm failure.
+  Use when the user asks for Red tests, TDD Red phase, FR-02 Red,
+  or starting P0 test implementation.
+---
+
+# Dual-Track Red
+
+## When to use
+- User requests Red test for a specific FR/NFR (e.g. "FR-02 Red")
+- User says "P0 Red 시작", "테스트 먼저 작성"
+- Command `/red-fr02` 등 Red 단계 실행
+
+## Prerequisites
+- Read `.cursorrules` and `Report/02/Traceability_Matrix.md`
+- Harness exists: `pyproject.toml`, `src/`, `tests/`
+- **Red only** — do not implement `src/` production code (import stub OK)
+
+## P0 Red order (do not skip)
+1. FR-02 → FR-04 → FR-03 → FR-01 → FR-05 → NFR-01 → NFR-02
+2. P1 EXT only after P0 Green
+
+## Step-by-step
+
+### 1. Identify FR ID and folder
+| ID | Folder |
+|----|--------|
+| FR-01, FR-05 | `tests/boundary/` |
+| FR-02, FR-03, FR-04, NFR-01 | `tests/entity/` |
+| NFR-02 | `tests/boundary/` (+ import structure test) |
+| EXT-02 | `tests/control/` |
+
+### 2. Create test file
+- Name: `test_{id}_{slug}.py` (e.g. `test_fr02_convert_all_units.py`)
+- Module docstring or test docstring first line: `FR-02: 전 단위 출력`
+
+### 3. Write Given/Then as asserts
+- FR-02: `pytest.approx(..., rel=1e-4)` for 8.2021 / 2.7340
+- FR-03/04: `pytest.raises(UnknownUnitError)` / `pytest.raises(NegativeValueError)`
+- FR-05: `pytest.raises(InvalidFormatError)` or equivalent
+
+### 4. Run pytest and confirm Red
+```powershell
+# Track B
+pytest tests/entity tests/control -v -k "fr02"
+
+# Track A
+pytest tests/boundary -v -k 
+
+_[...truncated for readability...]_
+
+---
+
+## Turn 41 — USER
+
+skill 초안 작성해줘. 
+description : UnitConverter_04 Dual-Track TDD·ECB 개발 시 Agent가 따를 절차
+
+---
+
+## Turn 42 — ASSISTANT
+
+프로젝트 Skill 초안을 `.cursor/skills/`에 생성합니다.
+
+[REDACTED]
+
+_[Tools: Read]_
+
+---
+
+## Turn 43 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Write]_
+
+---
+
+## Turn 44 — ASSISTANT
+
+Skill 초안을 생성했습니다.
+
+**경로:** `.cursor/skills/dual-track-ecb/SKILL.md`
+
+**구성:**
+
+| 섹션 | 내용 |
+|------|------|
+| §1 ECB 계층 | entity/control/boundary, 의존 방향, SRP, OCP |
+| §2 Dual-Track | Track A/B, FR별 테스트 폴더, 네이밍 |
+| §3 Red | P0 순서, Given/Then, pytest 실패 확인 |
+| §4 Green | entity → control → boundary, 오류 처리 |
+| §5 Refactor | OCP/SRP 정리, 회귀 |
+| §6 신규 단위 | NFR-01 OCP 절차 |
+| §7 P1 EXT | EXT-01~03 (P0 Green 후) |
+| Do NOT | 금지 사항 |
+
+**사용법:**
+- 채팅에서 `@dual-track-ecb` 또는 "FR-02 Red 작성해줘"
+- Command `/red-fr02`에서 "dual-track-ecb 스킬 따라…"로 연동
+
+다음으로 Command 초안(`/track-b`, `/red-fr02` 등)도 만들까요?
+
+[REDACTED]
+
+---
+
+## Turn 45 — USER
+
+.cursor/commands/tdd-red.md 를 새로 만들어줘.
+UnitConverter_04 Dual-Track TDD - RED 단계만 
+# TDD RED — 실패 테스트 먼저
+## 필수 선언 (첫 줄: Phase: red | Layer: ... | Track: ...)
+## 절차 (ID 확인 → AAA 테스트 → pytest FAIL)
+## pytest 예시 (bash)
+## 보고 (테스트 ID, FAIL 요약, 변경 파일 tests/만)
+## 금지 (src/ 수정, Domain Mock on Logic Track, assert 완화)
+Skill 파일은 만들지 마.
+
+---
+
+## Turn 46 — ASSISTANT
+
+`.cursorrules`와 프로젝트 구조를 확인한 뒤 `tdd-red` Command를 작성합니다.
+
+[REDACTED]
+
+_[Tools: Read, Glob]_
+
+---
+
+## Turn 47 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Write]_
+
+---
+
+## Turn 48 — ASSISTANT
+
+`.cursor/commands/tdd-red.md`를 생성했습니다.
+
+**사용:** 채팅에서 `/tdd-red` 입력
+
+**포함 내용:**
+
+| 섹션 | 내용 |
+|------|------|
+| 필수 선언 | `Phase: red \| Layer: ... \| Track: ... \| ID: ...` |
+| 절차 | ID 확인 → Layer/Track 매핑 → AAA 테스트 → pytest FAIL |
+| pytest 예시 | Track B/A, `-k` 필터, 단일 파일 |
+| 보고 | 테스트 ID, FAIL 요약, `tests/`만 변경 |
+| 금지 | `src/` 수정, Logic Track Domain Mock, assert 완화 |
+
+Skill 파일은 추가하지 않았습니다.
+
+[REDACTED]
+
+---
+
+## Turn 49 — USER
+
+.cursor/commands/review-ecb.md 를 새로 만들어줘.
+코드 수정 금지, ECB·계약 위반만 표로 리뷰.
+이건 Test/Review Loop용이야.
+
+---
+
+## Turn 50 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Read, Read]_
+
+---
+
+## Turn 51 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Write]_
+
+---
+
+## Turn 52 — ASSISTANT
+
+`.cursor/commands/review-ecb.md`를 생성했습니다.
+
+**사용:** 채팅에서 `/review-ecb`
+
+**역할 (Test/Review Loop):** 코드 수정 없이 ECB·FR/NFR 계약 위반만 표로 검수
+
+| 섹션 | 내용 |
+|------|------|
+| 필수 선언 | `Phase: review \| Scope: ... \| Layer: ...` |
+| 검사 A~E | ECB 계층, SRP/OCP, FR 계약, Dual-Track 배치, 오류 처리 |
+| 보고 | 요약표 + 위반 목록표 + FR별 테스트 현황표 + 권고(텍스트만) |
+| 금지 | 파일 수정, 자동 리팩터, Skill 생성 |
+
+`/tdd-red`(Red) → 구현(Green) → `/review-ecb`(Review) 흐름으로 쓰면 됩니다.
+
+[REDACTED]
+
+---
+
+## Turn 53 — USER
+
+UnitConverter_04 마무리 점검. 코드·파일 수정하지 마.
+[주제 1문장]
+[.cursorrules 요약 또는 전문]
+[Command/Skill 목록]
+[hooks.json 유무]
+8계층+Hook 관점 ✅/⚠️/❌:
+| 계층 | 상태 | 근거 |
+| Model | | (설정만) |
+| Agent | | Ask/Agent 역할 분리 |
+| Harness | | src/tests/pytest |
+| Rule | | .cursorrules |
+| Skill | | |
+| Command | | |
+| Tool/MCP | | pytest 등 |
+| Test/Review Loop | | 성공 기준·리뷰 Command |
+| Hook | | |
+계층 간 역할 중복·빈 구멍 1가지만 권고.
+
+---
+
+## Turn 54 — ASSISTANT
+
+프로젝트 현황을 읽기 전용으로 점검합니다.
+
+[REDACTED]
 
 _[Tools: Glob, Read, Glob]_
 
 ---
 
-## Turn 24 — ASSISTANT (Export 완료)
+## Turn 55 — ASSISTANT
 
-**Report 생성**
-- `Report/01/PRD_Summary.md` — PRD·레거시 분석·ECB 매핑
-- `Report/02/Traceability_Matrix.md` — FR/NFR/EXT ↔ Track/테스트 폴더
-- `Report/03/Progress_Status.md` — 지금까지 진행 상황 종합
+_[Response/tool activity redacted in export]_
 
-**Prompting Export**
-- `Prompting/transcript_c771b08d.jsonl` — 원본 JSONL
-- `Prompting/transcript_c771b08d.md` — 가독형 Transcript (본 파일)
+_[Tools: Read, Read, Read, Grep, Read, Read]_
+
+---
+
+## Turn 56 — ASSISTANT
+
+**UnitConverter_04 spec 단계 마무리 점검** — 레거시 시드를 ECB + Dual-Track TDD로 재구현하기 위한 Rule·Skill·Command·Harness는 갖춰졌고, RED 테스트·Green 구현·Hook은 아직 미착수입니다.
+
+---
+
+## `.cursorrules` 요약 (189줄, 루트 전문 존재)
+
+| 섹션 | 핵심 |
+|------|------|
+| **§1 컨텍스트** | P0 FR-01~05 + NFR-01~02, P1 EXT-01~03, 변환 비율·CLI spec, 레거시 금지, Harness·정밀도 |
+| **§2 ECB** | entity/control/boundary 배치, 의존 방향, LengthUnit·OCP·SRP, Parser 경계, `unit_converter` CLI |
+| **§3 Dual-Track TDD** | Track A/B, FR별 테스트 폴더, Red→Green 순서, Given/Then, 오류 처리, C2C 추적 |
+
+> 전문: `c:\DEV\UnitConverter_04\.cursorrules`
+
+---
+
+## Command / Skill 목록
+
+| 유형 | 이름 | 경로 | 역할 |
+|------|------|------|------|
+| **Skill** | `dual-track-ecb` | `.cursor/skills/dual-track-ecb/SKILL.md` | Red/Green/Refactor·ECB·OCP 전체 절차 |
+| **Command** | `/tdd-red` | `.cursor/commands/tdd-red.md` | RED만 — AAA 테스트 → pytest FAIL |
+| **Command** | `/review-ecb` | `.cursor/commands/review-ecb.md` | Test/Review — ECB·계약 위반 표 리뷰 (수정 금지) |
+
+---
+
+## `hooks.json` 유무
+
+**없음** — `.cursor/hooks.json` 및 hook 스크립트 미생성 (`Report/03`과 동일)
+
+---
+
+## 8계층 + Hook
+
+| 계층 | 상태 | 근거 |
+|------|------|------|
+| **Model** | ✅ | Cursor 기본 모델 사용; 프로젝트별 모델 설정 없음 (설정만) |
+| **Agent** | ✅ | Ask(점검·설명) / Agent(파일 생성) 세션에서 역할 분리 사용 |
+| **Harness** | ✅ | `pyproject.toml`(pytest), `src/{entity,control,boundary}/`, `tests/` ECB 3계층, `pythonpath=src` |
+| **Rule** | ✅ | `.cursorrules` 189줄 — PRD·ECB·Dual-Track·FR Given/Then·구현 표준 포함 |
+| **Skill** | ✅ | `dual-track-ecb` 1개 — description·Red/Green/Refactor·OCP 절차 |
+| **Command** | ⚠️ | `/tdd-red`, `/review-ecb` 2개 — **Green·Track 실행 Command 없음** |
+| **Tool/MCP** | ⚠️ | pytest Harness만; `src/`·테스트 본문 없어 Tool 루프 미검증, MCP 미연동 |
+| **Test/Review Loop** | ⚠️ | Red·Review Command 있음; FR Red/Green ❌ (`Report/02`), **성공 기준(Green) Command 부재** |
+| **Hook** | ❌ | `hooks.json` 없음 — 저장 후 자동 pytest·위험 명령 차단 없음 |
+
+---
+
+## 산출물 현황 (코드)
+
+| 항목 | 상태 |
+|------|------|
+| `UnitConverter.py` | 레거시 시드 37줄 (유지) |
+| `src/` | `__init__.py`만 (본문 없음) |
+| `tests/` | `__init__.py`만 (Red 테스트 없음) |
+
+_[...truncated for readability...]_
+
+---
+
+## Turn 57 — USER
+
+hooks.json + session-init.sh 만들어줘
+
+---
+
+## Turn 58 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Read, Read, Glob]_
+
+---
+
+## Turn 59 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Grep, Grep]_
+
+---
+
+## Turn 60 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Grep, Grep]_
+
+---
+
+## Turn 61 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Grep]_
+
+---
+
+## Turn 62 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: WebSearch]_
+
+---
+
+## Turn 63 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Grep]_
+
+---
+
+## Turn 64 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Read, Read, Read]_
+
+---
+
+## Turn 65 — ASSISTANT
+
+프로젝트 컨텍스트에 맞춰 `hooks.json`과 `session-init.sh`를 생성합니다.
+
+[REDACTED]
+
+_[Tools: Write, Write, Write, Write]_
+
+---
+
+## Turn 66 — ASSISTANT
+
+사용자가 요청한 `hooks.json`과 `session-init.sh`만 남기고, 추가로 만든 hook은 제거합니다.
+
+[REDACTED]
+
+_[Tools: Write, Delete, Delete, Shell]_
+
+---
+
+## Turn 67 — USER
+
+Report 폴더에 보고서 생성하고, Prompting 폴더에 Transcript도 Export 해줘
+
+---
+
+## Turn 68 — ASSISTANT
+
+_[Response/tool activity redacted in export]_
+
+_[Tools: Glob, Read, Glob]_
+
+---
