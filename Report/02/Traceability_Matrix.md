@@ -48,6 +48,7 @@ pytest tests/boundary -v
 
 | ID | Red | Green | 비고 |
 |----|-----|-------|------|
-| FR-01 ~ FR-05 | ❌ | ❌ | Harness만 존재 |
+| FR-02 | ✅ | ❌ | `tests/entity/test_fr02_convert_all_units.py` |
+| FR-01, FR-03 ~ FR-05 | ❌ | ❌ | |
 | NFR-01 ~ NFR-02 | ❌ | ❌ | |
 | EXT-01 ~ EXT-03 | ❌ | ❌ | P1 — P0 Green 후 |
