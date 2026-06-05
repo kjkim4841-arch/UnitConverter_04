@@ -1,0 +1,4 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\n다음 진행해줘\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"Phase: green | Layer: boundary | Track: A | ID: FR-05\n\nFR-05 Green 완료 — InvalidFormatError + InputParser 형식 검증 (5 cases). FR-01·Entity 회귀 11 passed."}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nReport 폴더에 보고서 생성하고, Prompting 폴더에 Transcript도 Export 해줘\n다되면 깃헙에 업로드해줘\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"Report/11 FR-05 Green 보고서 + Transcript Export + green branch GitHub push."}]}}

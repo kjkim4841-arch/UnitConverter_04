@@ -4,3 +4,7 @@ class NegativeValueError(ValueError):
 
 class UnknownUnitError(KeyError):
     pass
+
+
+class InvalidFormatError(ValueError):
+    pass

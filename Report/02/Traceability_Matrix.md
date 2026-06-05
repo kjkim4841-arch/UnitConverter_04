@@ -52,7 +52,7 @@ pytest tests/boundary -v
 | FR-02 | ✅ | ✅ | `tests/entity/test_fr02_convert_all_units.py` |
 | FR-03 | ✅ | ✅ | `tests/entity/test_fr03_unknown_unit.py` |
 | FR-04 | ✅ | ✅ | `tests/entity/test_fr04_reject_negative.py` |
-| FR-05 | ✅ | ❌ | `tests/boundary/test_fr05_invalid_format.py` |
+| FR-05 | ✅ | ✅ | `tests/boundary/test_fr05_invalid_format.py` |
 | NFR-01 | ✅ | ✅ | `tests/entity/test_nfr01_ocp_add_inch.py` |
 | NFR-02 | ✅ | ❌ | `tests/boundary/test_nfr02_module_separation.py` |
 | EXT-01 ~ EXT-03 | ❌ | ❌ | P1 — P0 Green 후 |
